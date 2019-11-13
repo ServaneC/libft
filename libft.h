@@ -6,7 +6,7 @@
 /*   By: schene <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 12:21:29 by schene            #+#    #+#             */
-/*   Updated: 2019/10/19 13:53:23 by schene           ###   ########.fr       */
+/*   Updated: 2019/11/13 16:12:40 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,11 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *), \
 					void (*del)(void *));
+void				ft_putchar(char c);
+void				ft_putstr(char *str);
+void				ft_putnbr(int nb);
+void				ft_put_unsigned_nbr(int nb);
+void				ft_putnbr_base(int nbr, char *base);
+void				ft_putptr(void const *ptr);
 
 #endif

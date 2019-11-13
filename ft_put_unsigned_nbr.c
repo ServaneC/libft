@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_put_unsigned_nbr.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: schene <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 15:32:26 by schene            #+#    #+#             */
-/*   Updated: 2019/10/21 15:01:41 by schene           ###   ########.fr       */
+/*   Created: 2019/11/13 13:13:13 by schene            #+#    #+#             */
+/*   Updated: 2019/11/13 13:18:57 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void	ft_put_unsigned_nbr(int nb)
 {
-	char			*newstr;
-	unsigned int	i;
+	unsigned int	n;
 
-	if (s == NULL)
-		return (NULL);
-	if (!(newstr = malloc(sizeof(char) * (ft_strlen(s) + 1))))
-		return (NULL);
-	i = 0;
-	while (s[i])
+	n = nb;
+	if (n >= 10)
 	{
-		newstr[i] = (*f)(i, s[i]);
-		i++;
+		ft_put_unsigned_nbr(n / 10);
+		ft_putchar('0' + n % 10);
 	}
-	newstr[i] = '\0';
-	return (newstr);
+	else
+		ft_putchar(n + '0');
 }
