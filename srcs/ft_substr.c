@@ -1,20 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/13 19:15:12 by schene            #+#    #+#             */
-/*   Updated: 2020/05/14 00:56:47 by schene           ###   ########.fr       */
+/*   Created: 2019/10/09 10:10:45 by schene            #+#    #+#             */
+/*   Updated: 2020/05/14 00:54:23 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "my_libft.h"
 
-#include "srcs/my_libft.h"
-#include "get_next_line/get_next_line.h"
-#include "ft_printf/libftprintf.h"
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	size_t	i;
+	char	*sub;
 
-#endif
+	i = 0;
+	if (s == NULL)
+		return (NULL);
+	if (start > ft_strlen(s))
+		return ("\0");
+	if (!(sub = malloc(sizeof(char) * len + 1)))
+		return (NULL);
+	while (s[start] && i < len)
+	{
+		sub[i] = s[start];
+		i++;
+		start++;
+	}
+	sub[i] = '\0';
+	return (sub);
+}

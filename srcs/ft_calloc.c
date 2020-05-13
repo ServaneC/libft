@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/13 19:15:12 by schene            #+#    #+#             */
-/*   Updated: 2020/05/14 00:56:47 by schene           ###   ########.fr       */
+/*   Created: 2019/10/09 09:43:22 by schene            #+#    #+#             */
+/*   Updated: 2020/05/14 00:54:23 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "my_libft.h"
 
-#include "srcs/my_libft.h"
-#include "get_next_line/get_next_line.h"
-#include "ft_printf/libftprintf.h"
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*mem;
 
-#endif
+	if (size < 1 || count < 1)
+	{
+		if (!(mem = malloc(1)))
+			return (NULL);
+	}
+	else if (!(mem = malloc(size * count)))
+		return (NULL);
+	ft_bzero(mem, (size * count));
+	return (mem);
+}

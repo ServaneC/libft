@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/13 19:15:12 by schene            #+#    #+#             */
-/*   Updated: 2020/05/14 00:56:47 by schene           ###   ########.fr       */
+/*   Created: 2019/11/13 13:06:59 by schene            #+#    #+#             */
+/*   Updated: 2020/05/14 00:54:23 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "my_libft.h"
 
-#include "srcs/my_libft.h"
-#include "get_next_line/get_next_line.h"
-#include "ft_printf/libftprintf.h"
+void	ft_putstr(char *str)
+{
+	int	i;
 
-#endif
+	i = 0;
+	while (str[i])
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
+}

@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: schene <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/13 19:15:12 by schene            #+#    #+#             */
-/*   Updated: 2020/05/14 00:56:47 by schene           ###   ########.fr       */
+/*   Created: 2019/10/07 11:15:19 by schene            #+#    #+#             */
+/*   Updated: 2019/10/08 15:35:35 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
-
-#include "srcs/my_libft.h"
-#include "get_next_line/get_next_line.h"
-#include "ft_printf/libftprintf.h"
-
-#endif
+int	ft_isalnum(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+		return (1);
+	return (0);
+}

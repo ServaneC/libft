@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/13 19:15:12 by schene            #+#    #+#             */
-/*   Updated: 2020/05/14 00:56:47 by schene           ###   ########.fr       */
+/*   Created: 2019/10/08 12:34:48 by schene            #+#    #+#             */
+/*   Updated: 2020/05/14 00:54:23 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "my_libft.h"
 
-#include "srcs/my_libft.h"
-#include "get_next_line/get_next_line.h"
-#include "ft_printf/libftprintf.h"
+char	*ft_strrchr(const char *s, int c)
+{
+	int		len;
 
-#endif
+	len = ft_strlen((char *)s);
+	while (len && s[len] != (char)c && s != NULL)
+		len--;
+	if (s[len] == (char)c && s != NULL)
+		return ((char *)&s[len]);
+	return (NULL);
+}

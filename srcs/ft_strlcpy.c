@@ -1,20 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/13 19:15:12 by schene            #+#    #+#             */
-/*   Updated: 2020/05/14 00:56:47 by schene           ###   ########.fr       */
+/*   Created: 2019/10/08 13:51:14 by schene            #+#    #+#             */
+/*   Updated: 2020/05/14 00:54:23 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "my_libft.h"
 
-#include "srcs/my_libft.h"
-#include "get_next_line/get_next_line.h"
-#include "ft_printf/libftprintf.h"
+static char	*ft_strncpy(char *dest, const char *src, size_t n)
+{
+	size_t i;
 
-#endif
+	i = 0;
+	while (src[i] && i < n)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}
+
+size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize)
+{
+	if (dstsize != 0 && (src != NULL && dst != NULL))
+		dst = ft_strncpy(dst, src, dstsize - 1);
+	return (ft_strlen(src));
+}

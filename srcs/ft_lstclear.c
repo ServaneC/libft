@@ -1,20 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/13 19:15:12 by schene            #+#    #+#             */
-/*   Updated: 2020/05/14 00:56:47 by schene           ###   ########.fr       */
+/*   Created: 2019/10/12 16:15:46 by schene            #+#    #+#             */
+/*   Updated: 2020/05/14 00:54:23 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "my_libft.h"
 
-#include "srcs/my_libft.h"
-#include "get_next_line/get_next_line.h"
-#include "ft_printf/libftprintf.h"
+void	ft_lstclear(t_list **lst, void (*del)(void *))
+{
+	t_list	*last;
+	int		size;
+	int		i;
 
-#endif
+	if (!(lst && del))
+		return ;
+	i = 0;
+	size = ft_lstsize(*lst);
+	while (i != size)
+	{
+		last = ft_lstnew(NULL);
+		last = ft_lstlast(*lst);
+		last->next = NULL;
+		ft_lstdelone(last, del);
+		i++;
+	}
+	*lst = NULL;
+}
